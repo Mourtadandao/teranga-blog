@@ -1,8 +1,8 @@
 // TODO(P502) : Étape 5.
 // Page d'accueil : présentation et les derniers articles.
 import {useState} from "react";
-import ArticleCard from "../components/ArticleCard.jsx";
 import { articlesDeTest } from "../donnees-test.js";
+import ListeArticles from "../components/ListeArticles.jsx";
 
 export default function Accueil() {
   const [favoris, setFavoris] = useState([]);
@@ -17,21 +17,10 @@ function basculerFavori(id) {
       <p>
         {favoris.length} articles favoris
       </p>
-      <ArticleCard 
-      article={articlesDeTest[0]} 
-      estFavori={favoris.includes(articlesDeTest[0].id)}
-      onBasculerFavori={() => basculerFavori(articlesDeTest[0].id)}
-      />
-      <ArticleCard 
-      article={articlesDeTest[1]} 
-      estFavori={favoris.includes(articlesDeTest[1].id)}
-      onBasculerFavori={() => basculerFavori(articlesDeTest[1].id)}
-      />
-      <ArticleCard 
-      article={articlesDeTest[2]} 
-      estFavori={favoris.includes(articlesDeTest[2].id)}
-      onBasculerFavori={() => basculerFavori(articlesDeTest[2].id)}
-      />
+      <ListeArticles
+       articles={articlesDeTest} 
+       favoris={favoris}
+        onBasculerFavori={basculerFavori} />
     </section>
   )
 }
