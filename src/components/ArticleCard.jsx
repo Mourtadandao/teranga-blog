@@ -1,11 +1,14 @@
-// TODO(P101) : Étape 1 (chapitre 1) puis étape 2 (chapitre 2).
+
 // Carte d'un article.
 // Props attendues : article (objet avec id, title, body), et plus tard estFavori, onBasculerFavori.
-export default function ArticleCard({ article }) {
+export default function ArticleCard({ article, estFavori, onBasculerFavori }) {
   const resume = article.body.slice(0,40) + "...";
   return (
     <div className="article-card">
       <h2>{article.title}</h2>
+      <button onClick={onBasculerFavori}>
+        {estFavori ? "Retirer des favoris" : "Ajouter aux favoris"}
+      </button>
       <p>{resume}</p>
     </div>
   );
